@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="SilverlightSudoku.LoadDlg"
+    xmlns="http://schemas.microsoft.com/client/2007" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+     HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <Grid x:Name="LayoutRoot">
+        <Grid.Resources>
+            <DataTemplate x:Key="partieTemplate">
+                <StackPanel>
+                    <TextBlock Text="ID : "/>
+                    <TextBlock Text="{Binding ID}" Margin="15,0,0,0"/>
+                    <TextBlock Text="Saved date : " />
+                    <TextBlock Text="{Binding Date}" Margin="15,0,0,0"/>
+                </StackPanel>
+                
+            </DataTemplate>
+        </Grid.Resources>
+        <Rectangle Fill="#50000000" />
+        <Border Width="500" Height="400" Background="{StaticResource windowBackground}" CornerRadius="8,8,8,8">
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition />
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Load a board" Margin="5,2,0,0"/>
+                <ListBox ItemsSource="{Binding Parties}" SelectedItem="{Binding Selected, Mode=TwoWay}" 
+                         Grid.Row="1" ItemTemplate="{StaticResource partieTemplate}" Background="White">
+                    
+                </ListBox>
+                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Content="Ok"  Width="70" Margin="2,2,2,4" Click="Button_Click" IsEnabled="{Binding HasSelection}"/>
+                    <Button Content="Cancel"  Width="70" Margin="2,2,2,4" Click="Cancel"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

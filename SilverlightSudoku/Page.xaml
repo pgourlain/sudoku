@@ -1,0 +1,237 @@
+﻿<UserControl x:Class="SilverlightSudoku.Page"
+    xmlns="http://schemas.microsoft.com/client/2007" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:pgo="clr-namespace:SilverlightSudoku"
+    >
+    <UserControl.Resources>
+        <pgo:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <pgo:ForegroundColorConverter x:Key="CellviewToColor"/>
+        <Style x:Key="xCell" TargetType="ContentControl">
+            <!--<Setter Property="RenderTransform">
+                <Setter.Value>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Setter.Value>
+            </Setter>-->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ContentControl"> 
+                        <Grid Margin="1" x:Name="xCellRoot">
+                            <Grid.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Grid.RenderTransform>
+                            <Rectangle Opacity="1" Fill="White" StrokeThickness="0.35"/>
+                            <Rectangle Opacity="1" StrokeThickness="0.35"
+                                   Visibility="{Binding IsFixed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush>
+                                        <GradientStop Offset="0" Color="#ffcc00" />
+                                        <GradientStop Offset="1.5" Color="Transparent" />
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Rectangle Opacity="1" StrokeThickness="0.35" Visibility="{Binding IsError, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush>
+                                        <GradientStop Offset="0" Color="#ff0000" />
+                                        <GradientStop Offset="1" Color="Transparent" />
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <ContentPresenter x:Name="GelButtonContent" VerticalAlignment="Center" 
+                                                          HorizontalAlignment="Center" 
+                                                          Content="{TemplateBinding Content}" 
+                                                          FontFamily="LHANDW.TTF#Lucida Handwriting" FontSize="70"
+                                                          Foreground="Black"
+                                                          />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <RadialGradientBrush x:Key="CrossColor" GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
+            <GradientStop Color="Red" Offset="0" />
+            <GradientStop Color="#EE0000" Offset="0.5" />
+            <GradientStop Color="#BB0000" Offset="0.75" />
+            <GradientStop Color="#AA0000" Offset="1" />
+        </RadialGradientBrush>
+
+        <Style x:Key="exMiniCellSyle" TargetType="ContentControl">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ContentControl">
+                        <Grid Margin="1">
+                            <Rectangle x:Name="bg" Opacity="1" Fill="White" StrokeThickness="0.35"/>
+                            <Rectangle x:Name="GelBackground" Opacity="0.5" StrokeThickness="0.35">
+                                <Rectangle.Fill>
+                                    <RadialGradientBrush>
+                                        <GradientStop Offset="0" Color="#ffcc00" />
+                                        <GradientStop Offset="1" Color="Transparent" />
+                                    </RadialGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <TextBlock VerticalAlignment="Center" 
+                                       HorizontalAlignment="Center" 
+                                       FontFamily="Verdana" FontSize="16"
+                                       FontWeight="800"
+                                       Foreground="{Binding THIS, Converter={StaticResource CellviewToColor}}" 
+                                       Text="{Binding Number}"/>
+                            <!-- cross number is Flagged -->
+                            <Path x:Name="FlaggedBackground" Margin="4,4,4,4" Fill="{StaticResource CrossColor}"
+                                  Visibility="{Binding IsFlagged, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                <Path.Data>
+                                    <PathGeometry>
+                                        <PathGeometry.Figures>
+                                            <PathFigureCollection>
+                                                <PathFigure IsClosed="True" StartPoint="3.66,0">
+                                                    <PathFigure.Segments>
+                                                        <LineSegment Point="10.99,7.33"/>
+                                                        <LineSegment Point="18.31,0"/>
+                                                        <LineSegment Point="22,3.66"/>
+                                                        <LineSegment Point="14.65,10.99"/>
+                                                        <LineSegment Point="22,18.31"/>
+
+                                                        <LineSegment Point="18.31,22"/>
+                                                        <LineSegment Point="10.99,14.65"/>
+                                                        <LineSegment Point="3.66,22"/>
+                                                        <LineSegment Point="0,18.31"/>
+                                                        <LineSegment Point="7.33,10.99"/>
+                                                        <LineSegment Point="0,5"/>
+                                                    </PathFigure.Segments>
+                                                </PathFigure>
+                                            </PathFigureCollection>
+                                        </PathGeometry.Figures>
+                                    </PathGeometry>
+                                </Path.Data>
+                            </Path>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <LinearGradientBrush x:Key="pgoGroupBox">
+            <LinearGradientBrush.GradientStops>
+                <GradientStop Offset="0" Color="Yellow" />
+                <GradientStop Offset="1" Color="Green" />
+            </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+        <DataTemplate x:Key="RemainingTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Number}"
+                 FontFamily="LHANDW.TTF#Lucida Handwriting" FontSize="30" FontWeight="800" />
+                <TextBlock Text=" : " FontFamily="digital.ttf#Digital" FontSize="20" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding Remaining}" 
+                           FontFamily="digital.ttf#Digital" 
+                           FontSize="20" VerticalAlignment="Center"/>
+
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" Background="{StaticResource windowBackground}">
+        <Grid.Resources>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="130"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
+        <!-- left menu -->
+        <StackPanel  Grid.Column="0" Margin="3,50,0,0">
+            <pgo:GroupBox Header="Main menu" BorderBrush="{StaticResource pgoGroupBox}">
+                <StackPanel>
+                    <Button Click="OnNewGame" Margin="0,0,0,3" Content="New Game"/>
+                    <Button Click="OnAbout" Margin="0,0,0,3" Content="About"/>
+                    <Button Click="Button_Click"  Margin="0,0,0,3" Content="Load Game"/>
+                    <Button Click="Button_Click_1" Margin="0,0,0,3" Content="Save Current" IsEnabled="{Binding IsGameStarted}" x:Name="bSave"/>
+                    <!--<Button Click="OnGameWon" Margin="0,0,0,3" Content="Won !"/>-->
+                </StackPanel>
+            </pgo:GroupBox>
+            <pgo:GroupBox Header="New game settings" BorderBrush="{StaticResource pgoGroupBox}">
+                <StackPanel>
+                    <RadioButton x:Name="rbEasy" Content="Easy" IsChecked="true"/>
+                    <RadioButton x:Name="rbHard" Content="Hard" />
+                </StackPanel>
+            </pgo:GroupBox>
+            <pgo:GroupBox x:Name="gbOptions" Header="Options" BorderBrush="{StaticResource pgoGroupBox}">
+                <StackPanel x:Name="pnlOptions">
+                    <CheckBox x:Name="cbShowHint" Content="Hint"
+                    IsChecked="{Binding ShowHint, Mode=TwoWay}"/>
+                    <CheckBox x:Name="cbShowErrors" Content="Show errors"
+                              IsChecked="{Binding ShowErrors, Mode=TwoWay}"/>
+                    <CheckBox x:Name="cbShowReminder" Content="Show reminder" 
+                              IsChecked="{Binding ShowReminder, Mode=TwoWay}"/>
+                    <!--IsChecked="{Binding View.Configuration.ShowReminder, Mode=TwoWay}"-->
+                    <Button Content="Clear user's notes" Click="ClearNotes"/>
+                </StackPanel>
+            </pgo:GroupBox>
+
+        </StackPanel>
+        <!-- middle part (game board) -->
+        <Grid  Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="0">
+                <Grid>
+                    <TextBlock Grid.Column="0" Grid.Row="0" 
+                     FontFamily="Arial Black" 
+                     FontSize="40" 
+                     Foreground="Black"
+                     Text="Genius Sudoku" Margin="1,1,0,0" >
+                    </TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="0" FontFamily="Arial Black" 
+                                FontSize="40" Text="Genius Sudoku" >
+                        <TextBlock.Foreground>
+                          <LinearGradientBrush StartPoint='0.0110642,0.499497' EndPoint='1,0.499681'>
+                            <LinearGradientBrush.GradientStops>
+                              <GradientStop Offset="0" Color="#C0C0C0"/>
+                              <GradientStop Offset="1" Color="sc#1, 0, 0.109317444, 0.3622814"/>
+                              <GradientStop Offset="0.48076923076923078" Color="sc#1, 0.08925855, 0.3948507, 0.7072673"/>
+                            </LinearGradientBrush.GradientStops>
+                          </LinearGradientBrush>
+                        </TextBlock.Foreground>
+                      </TextBlock>
+                </Grid>
+                <TextBlock Text="Silverlight version 2.0b2" VerticalAlignment="Bottom" FontSize="10" Margin="0,0,0,5"/>
+            </StackPanel>
+            <pgo:MyViewBox1 Grid.Column="0" Grid.Row="1" Margin="1,1,1,1">
+            <Grid x:Name="gameGrid" Height="900" Width="900" Grid.Column="0" Grid.Row="1">
+                <Border CornerRadius="5,5,5,5" >
+                    <Border.Background>
+                        <ImageBrush ImageSource="BoardBackground.jpg"/>
+                    </Border.Background>
+                    <pgo:SudokuGrid x:Name="_sudoku" Grid.Column="0" Grid.Row="1" 
+                                        MiniCellStyle="{StaticResource exMiniCellSyle}"
+                                        BigCellStyle="{StaticResource xCell}">
+                    </pgo:SudokuGrid>
+                </Border>
+            </Grid>
+            </pgo:MyViewBox1>
+        </Grid>
+        
+        <!-- time and reminder-->
+        <StackPanel x:Name="leftPanel" Grid.Column="2" Margin="0,50,0,0">
+            <pgo:GroupBox Header="Time" Margin="5,0,5,0" BorderBrush="{StaticResource pgoGroupBox}">
+                <TextBlock x:Name="tbTime" FontFamily="digital.ttf#Digital" FontSize="50" Text="{Binding Time}"/>
+            </pgo:GroupBox>
+            <pgo:GroupBox x:Name="gbReminder" Header="Reminder" Margin="5,0,5,0" 
+                          BorderBrush="{StaticResource pgoGroupBox}" 
+                          Visibility="{Binding ShowReminder, Converter={StaticResource BooleanToVisibilityConverter}}"
+                          >
+                <ItemsControl x:Name="itemsReminder" ItemsSource="{Binding Remainings}"
+                      ItemTemplate="{StaticResource RemainingTemplate}"/>
+            </pgo:GroupBox>
+        </StackPanel>
+    </Grid>
+
+</UserControl>

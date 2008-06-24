@@ -1,0 +1,108 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFGeniusSudoku", "WPF\WPFGeniusSudoku.csproj", "{CD765219-66C8-4093-ADD6-EB2907064608}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "WPF\Setup\Setup.vdproj", "{B590BA75-92ED-4142-9314-D78EB580A5BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SilverlightSudoku", "SilverlightSudoku\SilverlightSudoku.csproj", "{A559FB62-CA0B-4B75-8312-6695275F698D}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SilverlightSudoku_Web", "SilverlightSudoku_Web", "{AC3EB6A7-DB59-4BCF-8347-334EA5BFBC9C}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "SAK"
+		SccAuxPath = "SAK"
+		SccLocalPath = "SAK"
+		SccProvider = "SAK"
+		TargetFramework = "3.5"
+		Debug.AspNetCompiler.VirtualPath = "/SilverlightSudoku_Web"
+		Debug.AspNetCompiler.PhysicalPath = "..\SilverlightSudoku_Web\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\SilverlightSudoku_Web\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/SilverlightSudoku_Web"
+		Release.AspNetCompiler.PhysicalPath = "..\SilverlightSudoku_Web\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\SilverlightSudoku_Web\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "1752"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs02.codeplex.com/
+		SccProjectUniqueName0 = WPF\\WPFGeniusSudoku.csproj
+		SccProjectName0 = WPF
+		SccLocalPath0 = WPF
+		SccLocalPath1 = .
+		SccProjectUniqueName2 = SilverlightSudoku\\SilverlightSudoku.csproj
+		SccProjectName2 = SilverlightSudoku
+		SccLocalPath2 = SilverlightSudoku
+		SccWebProject3 = true
+		SccProjectUniqueName3 = SilverlightSudoku_Web
+		SccLocalPath3 = .
+		SccProjectFilePathRelativizedFromConnection3 = SilverlightSudoku_Web\\
+		SccProjectEnlistmentChoice3 = 2
+		SccProjectUniqueName4 = WPF\\Setup\\Setup.vdproj
+		SccProjectName4 = WPF/Setup
+		SccLocalPath4 = WPF\\Setup
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Release|.NET = Release|.NET
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD765219-66C8-4093-ADD6-EB2907064608}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{CD765219-66C8-4093-ADD6-EB2907064608}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD765219-66C8-4093-ADD6-EB2907064608}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD765219-66C8-4093-ADD6-EB2907064608}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{CD765219-66C8-4093-ADD6-EB2907064608}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{CD765219-66C8-4093-ADD6-EB2907064608}.Release|.NET.ActiveCfg = Release|Any CPU
+		{CD765219-66C8-4093-ADD6-EB2907064608}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD765219-66C8-4093-ADD6-EB2907064608}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD765219-66C8-4093-ADD6-EB2907064608}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{CD765219-66C8-4093-ADD6-EB2907064608}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{B590BA75-92ED-4142-9314-D78EB580A5BD}.Debug|.NET.ActiveCfg = Debug
+		{B590BA75-92ED-4142-9314-D78EB580A5BD}.Debug|.NET.Build.0 = Debug
+		{B590BA75-92ED-4142-9314-D78EB580A5BD}.Debug|Any CPU.ActiveCfg = Debug
+		{B590BA75-92ED-4142-9314-D78EB580A5BD}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{B590BA75-92ED-4142-9314-D78EB580A5BD}.Debug|Mixed Platforms.Build.0 = Debug
+		{B590BA75-92ED-4142-9314-D78EB580A5BD}.Release|.NET.ActiveCfg = Release
+		{B590BA75-92ED-4142-9314-D78EB580A5BD}.Release|.NET.Build.0 = Release
+		{B590BA75-92ED-4142-9314-D78EB580A5BD}.Release|Any CPU.ActiveCfg = Release
+		{B590BA75-92ED-4142-9314-D78EB580A5BD}.Release|Mixed Platforms.ActiveCfg = Release
+		{B590BA75-92ED-4142-9314-D78EB580A5BD}.Release|Mixed Platforms.Build.0 = Release
+		{A559FB62-CA0B-4B75-8312-6695275F698D}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{A559FB62-CA0B-4B75-8312-6695275F698D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A559FB62-CA0B-4B75-8312-6695275F698D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A559FB62-CA0B-4B75-8312-6695275F698D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{A559FB62-CA0B-4B75-8312-6695275F698D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{A559FB62-CA0B-4B75-8312-6695275F698D}.Release|.NET.ActiveCfg = Release|Any CPU
+		{A559FB62-CA0B-4B75-8312-6695275F698D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A559FB62-CA0B-4B75-8312-6695275F698D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A559FB62-CA0B-4B75-8312-6695275F698D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{A559FB62-CA0B-4B75-8312-6695275F698D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{AC3EB6A7-DB59-4BCF-8347-334EA5BFBC9C}.Debug|.NET.ActiveCfg = Debug|.NET
+		{AC3EB6A7-DB59-4BCF-8347-334EA5BFBC9C}.Debug|.NET.Build.0 = Debug|.NET
+		{AC3EB6A7-DB59-4BCF-8347-334EA5BFBC9C}.Debug|Any CPU.ActiveCfg = Debug|.NET
+		{AC3EB6A7-DB59-4BCF-8347-334EA5BFBC9C}.Debug|Mixed Platforms.ActiveCfg = Debug|.NET
+		{AC3EB6A7-DB59-4BCF-8347-334EA5BFBC9C}.Debug|Mixed Platforms.Build.0 = Debug|.NET
+		{AC3EB6A7-DB59-4BCF-8347-334EA5BFBC9C}.Release|.NET.ActiveCfg = Debug|.NET
+		{AC3EB6A7-DB59-4BCF-8347-334EA5BFBC9C}.Release|.NET.Build.0 = Debug|.NET
+		{AC3EB6A7-DB59-4BCF-8347-334EA5BFBC9C}.Release|Any CPU.ActiveCfg = Debug|.NET
+		{AC3EB6A7-DB59-4BCF-8347-334EA5BFBC9C}.Release|Mixed Platforms.ActiveCfg = Debug|.NET
+		{AC3EB6A7-DB59-4BCF-8347-334EA5BFBC9C}.Release|Mixed Platforms.Build.0 = Debug|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
