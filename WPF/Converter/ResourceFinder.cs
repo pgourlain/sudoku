@@ -10,9 +10,9 @@ namespace GeniusSudokuConverter
     {
         #region IValueConverter Members
 
-        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        public object? Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            string aKey = value.ToString();
+            string? aKey = value.ToString();
             if (parameter != null)
                 aKey = parameter.ToString()+aKey;
             if (Application.Current.Resources.Contains(aKey))

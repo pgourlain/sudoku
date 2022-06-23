@@ -14,7 +14,7 @@ namespace WPFGeniusSudoku
     /// Interaction logic for MyApp.xaml
     /// </summary>
 
-    public partial class GeniusApplication : Application
+    public partial class App : Application
     {
         private void AppOnStartup(object sender, StartupEventArgs e)
         {

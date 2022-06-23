@@ -33,14 +33,13 @@ namespace WPFGeniusSudoku.SudokuControl
             internal set
             {
                 _NumberRestant = value;
-                if (PropertyChanged != null)
-                    PropertyChanged(this, new PropertyChangedEventArgs("Remaining"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Remaining"));
             }
         }
 
         #region INotifyPropertyChanged Members
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         #endregion
     }

@@ -10,6 +10,6 @@ namespace GeniusSudoku.Core
     class SudokuData
     {
         public int Rate;
-        public byte[,] Datas;
+        public byte[,] Datas = new byte[0,0];
     }
 }

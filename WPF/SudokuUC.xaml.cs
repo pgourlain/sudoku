@@ -31,7 +31,7 @@ namespace WPFGeniusSudoku
 
         void SudokuUC_Completed(object sender, EventArgs e)
         {
-            SayGood(sender, null);
+            SayGood(sender, new RoutedEventArgs());
         }
 
         void OnNewGame(object sendr, RoutedEventArgs e)

@@ -12,14 +12,13 @@
         <RowDefinition Height="10"/>
       </Grid.RowDefinitions>
       <StackPanel Grid.Row="1" Margin="20,0,0,0">
-        <TextBlock  Text="this game is based on .Net framework 3.0" FontFamily="Tahoma"/>
+        <TextBlock  Text="this game is based on .Net framework 3.0, then .Net Core 6.0" FontFamily="Tahoma"/>
           <TextBlock  >
-            <Italic>Pierrick Gourlain, August 2006</Italic>
+            <Italic>Pierrick Gourlain, August 2006 / June 2022</Italic>
             <Run FontFamily="Tahoma">. Visit</Run>
-            <Hyperlink FontFamily="Tahoma" NavigateUri="http://www.codeplex.com/geniussudoku" RequestNavigate="OnGotoSite">WebSite</Hyperlink>
+            <Hyperlink FontFamily="Tahoma" NavigateUri="https://github.com/pgourlain/sudoku" RequestNavigate="OnGotoSite">WebSite</Hyperlink>
             <Run FontFamily="Tahoma"> for new versions.</Run>
-            <Run FontSize="7">June 2008 update</Run>
-          </TextBlock>
+            </TextBlock>
       </StackPanel>
 
 

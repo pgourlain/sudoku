@@ -8,13 +8,13 @@ namespace WPFGeniusSudoku.Services
 {
     public static class ModalService
     {
-        public static Grid ModalHostContent;
+        public static Grid? ModalHostContent;
         public static Grid ModalHost;
 
         public static void ShowModal(UIElement content)
         {
-            ModalHostContent.Children.Clear();
-            ModalHostContent.Children.Add(content);
+            ModalHostContent?.Children.Clear();
+            ModalHostContent?.Children.Add(content);
             ModalHost.Visibility = Visibility.Visible;
         }
     

@@ -19,7 +19,7 @@ namespace GeniusSudokuConverter
 
         #region IValueConverter Members
 
-        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        public object? Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             if (value == DependencyProperty.UnsetValue ||value == null)
                 return null;
